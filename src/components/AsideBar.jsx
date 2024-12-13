@@ -1,8 +1,9 @@
-function AsideBar({ tags, setPosts }) {
+function AsideBar({ tags, posts, setPosts }) {
     const handleTagClick = (e) => {
         console.log(e.target.innerText);
         const tagTarget = e.target.innerText;
-        setPosts((posts) => posts.filter((post) => post.tags.includes(tagTarget)));
+        const filteredPosts = posts.filter((post) => post.tags.includes(tagTarget));
+        setPosts(filteredPosts);
     };
     return (
         <aside className="bg-stone-600 text-white w-0 md:w-auto relative">

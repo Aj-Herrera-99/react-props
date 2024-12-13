@@ -19,7 +19,7 @@ function App() {
         <>
             <Header title={"Il mio blog"}></Header>
             <div className="flex">
-                <AsideBar tags={flatTags} setPosts={setPosts}></AsideBar>
+                <AsideBar tags={flatTags} posts={[...data]} setPosts={setPosts}></AsideBar>
                 <Main titolo="Il mio blog" posts={posts}></Main>
             </div>
             <Footer>
