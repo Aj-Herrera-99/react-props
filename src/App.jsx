@@ -6,21 +6,18 @@ import posts from "./data/posts";
 
 
 function App() {
-    let tagsArr = [];
-    posts.forEach(post => tagsArr.push(post.tags));
-    tagsArr = tagsArr.flat();
-    const tagsSet = new Set(tagsArr);
-    while(tagsArr.length){
-        tagsArr.pop();
-    }
-    tagsSet.forEach(val => tagsArr.push(val))
-    console.log(tagsArr);
+    let flatTags = posts.flatMap(post => post.tags);
+    console.log(flatTags)
+    const tagsSet = new Set(flatTags);
+    console.log(tagsSet);
+    flatTags = Array.from(tagsSet);
+    console.log(flatTags)
 
     return (
         <>
             <Header title={"Il mio blog"}></Header>
             <div className="flex">
-                <AsideBar tags={tagsArr}></AsideBar>
+                <AsideBar tags={flatTags}></AsideBar>
                 <Main titolo="Il mio blog" posts={posts}></Main>
             </div>
             <Footer>
