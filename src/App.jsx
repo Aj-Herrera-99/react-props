@@ -2,22 +2,24 @@ import Header from "./components/Header";
 import AsideBar from "./components/AsideBar";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-import posts from "./data/posts";
+import data from "./data/posts";
+import { useState } from "react";
 
 
 function App() {
-    let flatTags = posts.flatMap(post => post.tags);
-    console.log(flatTags)
+    let flatTags = data.flatMap(item => item.tags);
     const tagsSet = new Set(flatTags);
-    console.log(tagsSet);
     flatTags = Array.from(tagsSet);
-    console.log(flatTags)
+
+    // states
+    const [posts, setPosts] = useState([...data]);
+    console.log(posts)
 
     return (
         <>
             <Header title={"Il mio blog"}></Header>
             <div className="flex">
-                <AsideBar tags={flatTags}></AsideBar>
+                <AsideBar tags={flatTags} setPosts={setPosts}></AsideBar>
                 <Main titolo="Il mio blog" posts={posts}></Main>
             </div>
             <Footer>
