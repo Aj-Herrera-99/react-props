@@ -15,6 +15,7 @@ function Main({ titolo }) {
                         image={post.image}
                         title={post.title}
                         content={post.content}
+                        tags={post.tags}
                     ></Card>
                 ))}
             </div>

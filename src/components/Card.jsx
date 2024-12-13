@@ -6,6 +6,7 @@ function Card({
     title,
     content,
     image = "https://picsum.photos/200/300",
+    tags,
 }) {
     // card states
     const [modal, setModal] = useState(false);
@@ -47,7 +48,11 @@ function Card({
                         {content}
                     </p>
                 </div>
-                <Badge />
+                <div className="flex gap-2">
+                    {tags.map((tag, index) => (
+                        <Badge key={index} tag={tag}></Badge>
+                    ))}
+                </div>
             </div>
         </div>
     );
