@@ -1,8 +1,9 @@
 function AsideBar({ tags, setPosts }) {
-
-    const handleTagClick = () => {
-        console.log("click");
-    }
+    const handleTagClick = (e) => {
+        console.log(e.target.innerText);
+        const tagTarget = e.target.innerText;
+        setPosts((posts) => posts.filter((post) => post.tags.includes(tagTarget)));
+    };
     return (
         <aside className="bg-stone-600 text-white w-0 md:w-auto relative">
             <div className="cursor-pointer text-4xl absolute top-0 right-[-50px] md:hidden">
