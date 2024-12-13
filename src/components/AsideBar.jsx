@@ -23,8 +23,8 @@ function AsideBar({ tags, posts, setPosts }) {
 
     return (
         <aside
-            className={`bg-stone-600 text-white h-full w-[150px] translate-x-[-150px] absolute transition-all md:static md:translate-x-0  ${
-                showSideBar && "translate-x-0"
+            className={`bg-stone-600 text-white top-[10vh] bottom-0 w-[150px] fixed transition-all md:static md:translate-x-0  ${
+                showSideBar ? "translate-x-0" : "translate-x-[-150px]"
             }`}
         >
             <div
@@ -32,16 +32,14 @@ function AsideBar({ tags, posts, setPosts }) {
                 className={`cursor-pointer text-4xl absolute top-0 right-2 pt-3 md:hidden `}
             >
                 <i
-                    className={`fa-solid fa-bars text-stone-600 delay-500 translate-x-[50px] ${
-                        showSideBar ? "hidden" : "block"
+                    className={`fa-solid fa-bars text-stone-600 delay-500 translate-x-[80px] ${
+                        showSideBar ? "hidden" : ""
                     }`}
                 ></i>
-                <i
-                    class={`fa-solid fa-xmark text-stone-300`}
-                ></i>
+                <i className={`fa-solid fa-xmark text-stone-300`}></i>
             </div>
             <ul
-                className={`text-2xl mt-12 md:block md:px-12 ${
+                className={`text-2xl mt-12 md:block ${
                     showSideBar ? "block" : "hidden"
                 }`}
             >

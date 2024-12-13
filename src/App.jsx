@@ -3,6 +3,7 @@ import AsideBar from "./components/AsideBar";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import data from "./data/posts";
+
 import { useState } from "react";
 
 let flatTags = data.flatMap((item) => item.tags);
@@ -17,7 +18,7 @@ function App() {
     return (
         <>
             <Header title={"Il mio blog"}></Header>
-            <div className="flex min-h-[75vh] md:h-[75vh] relative">
+            <div className="flex mt-[10vh] min-h-[75vh] md:h-[75vh] relative">
                 <AsideBar
                     tags={flatTags}
                     posts={[...data]}
