@@ -5,21 +5,24 @@ import Footer from "./components/Footer";
 import data from "./data/posts";
 import { useState } from "react";
 
+let flatTags = data.flatMap((item) => item.tags);
+const tagsSet = new Set(flatTags);
+flatTags = Array.from(tagsSet);
 
 function App() {
-    let flatTags = data.flatMap(item => item.tags);
-    const tagsSet = new Set(flatTags);
-    flatTags = Array.from(tagsSet);
-
     // states
     const [posts, setPosts] = useState([...data]);
-    console.log(posts)
+    console.log(posts);
 
     return (
         <>
             <Header title={"Il mio blog"}></Header>
-            <div className="flex">
-                <AsideBar tags={flatTags} posts={[...data]} setPosts={setPosts}></AsideBar>
+            <div className="flex min-h-[75vh] md:h-[75vh] relative">
+                <AsideBar
+                    tags={flatTags}
+                    posts={[...data]}
+                    setPosts={setPosts}
+                ></AsideBar>
                 <Main titolo="Il mio blog" posts={posts}></Main>
             </div>
             <Footer>
