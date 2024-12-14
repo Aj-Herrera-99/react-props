@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import AsideBar from "./components/AsideBar";
+import Aside from "./components/Aside";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import data from "./data/posts";
@@ -13,17 +13,16 @@ flatTags = Array.from(tagsSet);
 function App() {
     // states
     const [posts, setPosts] = useState([...data]);
-    console.log(posts);
 
     return (
         <>
             <Header title={"Il mio blog"}></Header>
             <div className="flex mt-[10vh] min-h-[75vh] md:h-[75vh] relative">
-                <AsideBar
+                <Aside
                     tags={flatTags}
                     posts={[...data]}
                     setPosts={setPosts}
-                ></AsideBar>
+                ></Aside>
                 <Main titolo="Il mio blog" posts={posts}></Main>
             </div>
             <Footer>

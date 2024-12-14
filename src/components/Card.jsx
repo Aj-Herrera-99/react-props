@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import Badge from "./Badge";
 import style from "./Card.module.css";
 
@@ -19,6 +19,8 @@ function Card({
     // classes
     const modalClass =
         "fixed w-[70vw] sm:w-[50vw] lg:w-[22vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20";
+
+    console.log("Rendering Card . . .")
 
     return (
         <div
@@ -58,4 +60,4 @@ function Card({
     );
 }
 
-export default Card;
+export default memo(Card);
