@@ -1,30 +1,33 @@
 import { useState, memo, useRef } from "react";
 import Badge from "./Badge";
 import style from "./Card.module.css";
+import mainStyle from "./Main.module.css"
 
 function Card({
     title,
     content,
     image = "https://picsum.photos/200/300",
     tags,
+    mainRef
 }) {
     // card states
-    const [modal, setModal] = useState(false);
-    const ref = useRef(null);
+    const [isModal, setIsModal] = useState(false);
+    const cardRef = useRef(null);
 
     // card click event
     const handleCardClick = () => {
-        setModal(!modal);
-        const card = ref.current;
-        console.log(card);
+        setIsModal(!isModal);
+        const card = cardRef.current;
         card.classList.toggle(style.modal);
+        const main = mainRef.current;
+        main.classList.toggle(mainStyle.overlay);
     };
 
     console.log("Rendering Card . . .");
 
     return (
         <div
-            ref={ref}
+            ref={cardRef}
             onClick={handleCardClick}
             className={`${style.cardRatio} bg-white flex flex-col rounded-xl overflow-hidden cursor-pointer shadow-lg shadow-stone-500  hover:scale-110 hover:rotate-6 hover:shadow-xl hover:shadow-zinc-700 transition-all`}
         >

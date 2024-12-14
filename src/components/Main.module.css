@@ -1,0 +1,11 @@
+.overlay {
+    position: relative;
+}
+
+.overlay::after {
+    position: fixed;
+    content: "";
+    inset: 0;
+    background: #00000080;
+    z-index: 10;
+}
