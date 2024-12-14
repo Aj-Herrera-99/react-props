@@ -1,4 +1,4 @@
-import { memo, useRef } from "react";
+import { useState, memo, useRef } from "react";
 import Badge from "./Badge";
 import style from "./Card.module.css";
 
@@ -8,11 +8,13 @@ function Card({
     image = "https://picsum.photos/200/300",
     tags,
 }) {
-    // card ref
+    // card states
+    const [modal, setModal] = useState(false);
     const ref = useRef(null);
 
     // card click event
     const handleCardClick = () => {
+        setModal(!modal);
         const card = ref.current;
         console.log(card);
         card.classList.toggle(style.modal);
