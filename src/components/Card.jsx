@@ -29,7 +29,7 @@ function Card({
         <div
             ref={cardRef}
             onClick={handleCardClick}
-            className={`${style.cardRatio} bg-white flex flex-col rounded-xl overflow-hidden cursor-pointer shadow-lg shadow-stone-500  hover:scale-110 hover:rotate-6 hover:shadow-xl hover:shadow-zinc-700 transition-all`}
+            className={` bg-white flex flex-col rounded-xl overflow-hidden cursor-pointer shadow-lg shadow-stone-500  hover:scale-110 hover:rotate-6 hover:shadow-xl hover:shadow-zinc-700 transition-all`}
         >
             <div className={`h-3/5 bg-red-300`}>
                 <img
@@ -50,7 +50,7 @@ function Card({
                         {content}
                     </p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                     {tags.map((tag, index) => (
                         <Badge key={index} tag={tag}></Badge>
                     ))}

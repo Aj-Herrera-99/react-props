@@ -21,14 +21,16 @@ function Main({ posts }) {
     };
 
     return (
-        <main ref={mainRef} className="overflow-y-scroll p-5 bg-stone-300">
-            <button
-                onClick={handleClick}
-                ref={btnRef}
-                className="px-6 py-2 bg-cyan-700 text-white rounded-md border-2 focus:border-black transition-all"
-            >
-                I'll turn red without re-rendering!
-            </button>
+        <main ref={mainRef} className="w-full overflow-y-scroll p-5 bg-stone-300">
+            <div className="flex justify-end m-2">
+                <button
+                    onClick={handleClick}
+                    ref={btnRef}
+                    className="px-6 py-2 bg-cyan-700 text-white rounded-md border-2 focus:border-black transition-all align"
+                >
+                    I'll turn red without re-rendering!
+                </button>
+            </div>
             <div className="w-3/4 xl:w-3/5 mx-auto grid auto-rows-fr grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {posts.map((post) => (
                     <Card

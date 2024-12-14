@@ -11,6 +11,16 @@ function Aside({ tags, posts, setPosts }) {
         setPosts(posts);
     };
 
+    const handleChange = (e) => {
+        console.log(e.target.value)
+        const filteredPosts = posts.filter(post => {
+            return post.tags.some(tag => {
+                return tag.startsWith(e.target.value)
+            })
+        })
+        setPosts(filteredPosts);
+    }
+
     // classes
     const translateLeftClass = showSideBar
         ? "translate-x-0"
@@ -25,7 +35,8 @@ function Aside({ tags, posts, setPosts }) {
                 showSideBar={showSideBar}
                 setShowSideBar={setShowSideBar}
             ></Hamburger>
-            <ul className={`text-2xl mt-12 md:block ${visibilityClass}`}>
+            <input onChange={handleChange} type="text" className="text-black w-5/6 mt-16 py-1 px-2 ml-2 rounded-md" placeholder="Search by Tag"/>
+            <ul className={`text-2xl mt-3 md:block ${visibilityClass}`}>
                 {tags.map((tag, index) => (
                     <Tag
                         key={index}

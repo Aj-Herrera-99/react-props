@@ -21,3 +21,10 @@
         width: 22vw;
     }
 }
+
+@media screen and (orientation: landscape) and (max-height: 640px){
+    .modal {
+        width: auto;
+        height: 80vh;
+    }
+}
