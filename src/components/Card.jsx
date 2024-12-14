@@ -1,4 +1,4 @@
-import { useState, memo } from "react";
+import { memo, useRef } from "react";
 import Badge from "./Badge";
 import style from "./Card.module.css";
 
@@ -8,28 +8,23 @@ function Card({
     image = "https://picsum.photos/200/300",
     tags,
 }) {
-    // card states
-    const [modal, setModal] = useState(false);
+    // card ref
+    const ref = useRef(null);
 
     // card click event
-    const handleCardClick = (e) => {
-        setModal(!modal);
+    const handleCardClick = () => {
+        const card = ref.current;
+        console.log(card);
+        card.classList.toggle(style.modal);
     };
 
-    // classes
-    const modalClass =
-        "fixed w-[70vw] sm:w-[50vw] lg:w-[22vw] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20";
-
-    console.log("Rendering Card . . .")
+    console.log("Rendering Card . . .");
 
     return (
         <div
+            ref={ref}
             onClick={handleCardClick}
-            className={`${
-                style.cardRatio
-            } bg-white flex flex-col rounded-xl overflow-hidden cursor-pointer shadow-lg shadow-stone-500  hover:scale-110 hover:rotate-6 hover:shadow-xl hover:shadow-zinc-700 transition-all ${
-                modal && modalClass
-            }`}
+            className={`${style.cardRatio} bg-white flex flex-col rounded-xl overflow-hidden cursor-pointer shadow-lg shadow-stone-500  hover:scale-110 hover:rotate-6 hover:shadow-xl hover:shadow-zinc-700 transition-all`}
         >
             <div className={`h-3/5 bg-red-300`}>
                 <img
